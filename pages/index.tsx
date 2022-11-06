@@ -9,16 +9,11 @@ import Head from 'next/head';
 import { getSortedPostsData } from '../lib/posts';
 import Date from '../components/date';
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-}
-
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData }: {allPostsData: {
+  date:string 
+  title: string 
+  id: string
+}[]}) {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = async () => {
@@ -71,4 +66,13 @@ export default function Home({ allPostsData }) {
       <section className={``}></section>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
 }

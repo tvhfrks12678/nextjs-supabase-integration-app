@@ -9,11 +9,15 @@ import Head from 'next/head';
 import { getSortedPostsData } from '../lib/posts';
 import Date from '../components/date';
 
-export default function Home({ allPostsData }: {allPostsData: {
-  date:string 
-  title: string 
-  id: string
-}[]}) {
+export default function Home({
+  allPostsData,
+}: {
+  allPostsData: {
+    date: string;
+    title: string;
+    id: string;
+  }[];
+}) {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = async () => {
@@ -30,7 +34,11 @@ export default function Home({ allPostsData }: {allPostsData: {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-
+      <nav>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+      </nav>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>

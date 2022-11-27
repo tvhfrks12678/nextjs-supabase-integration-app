@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { DisplayIndex } from '../../../features/study/axios/DisplayIndex';
 
 export default function State() {
   const [list, setList] = useState([
@@ -29,6 +30,7 @@ export default function State() {
   return (
     <>
       <div>StateStudy</div>
+      <DisplayIndex />
     </>
   );
 }
